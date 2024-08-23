@@ -1,8 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import localFont from "@next/font/local";
 
-const inter = Inter({ subsets: ["latin"] });
+const RedHatText = localFont({
+  src: [
+    {
+      path: "../public/assets/fonts/RedHatText/RedHatText-Regular.ttf",
+      weight: "400",
+    },
+    {
+      path: "../public/assets/fonts/RedHatText/RedHatText-SemiBold.ttf",
+      weight: "600",
+    },
+    {
+      path: "../public/assets/fonts/RedHatText/RedHatText-Bold.ttf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-RedHat",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={RedHatText.variable}>{children}</body>
     </html>
   );
 }
