@@ -19,7 +19,6 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@/fonts/*":["/public/assets/fonts/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
