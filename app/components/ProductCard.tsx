@@ -1,7 +1,24 @@
 import Image from "next/image";
 import React from "react";
 
-export default function ProductCard({ data }: any) {
+interface productImages {
+  thumbnail: string;
+  mobile: string;
+  tablet: string;
+  desktop: string;
+}
+
+interface product {
+  image: productImages;
+  name: string;
+  category: string;
+  price: number;
+}
+
+interface ProductCardProps {
+  data: product;
+}
+export default function ProductCard({ data }: ProductCardProps) {
   return (
     <div className="w-full h-full rounded-lg overflow-hidden justify-between">
       <div className="flex w-full rounded-lg h-42 overflow-hidden items-center justify-center">

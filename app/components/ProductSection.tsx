@@ -1,20 +1,8 @@
 import React from "react";
 import data from "@/public/data.json";
 import ProductCard from "./ProductCard";
-import { log } from "console";
 
 export default function ProductSection() {
-  const test = {
-    image: {
-      thumbnail: "./assets/images/image-waffle-thumbnail.jpg",
-      mobile: "./assets/images/image-waffle-mobile.jpg",
-      tablet: "./assets/images/image-waffle-tablet.jpg",
-      desktop: "./assets/images/image-waffle-desktop.jpg",
-    },
-    name: "Waffle with Berries",
-    category: "Waffle",
-    price: 6.5,
-  };
 
   return (
     <div className="w-9/12 h-full">
