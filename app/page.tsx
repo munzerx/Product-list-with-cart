@@ -38,6 +38,8 @@ export default function Home() {
             />
           );
         })}
+
+        <div className="h-full bg-blue-500">h</div>
       </ProductSection>
       <CartSection cartItems={cartItems} />
     </main>
