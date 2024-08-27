@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import AddtoCartButton from "./ui/AddtoCartButton";
 
 interface productImages {
   thumbnail: string;
@@ -14,20 +15,33 @@ interface product {
   category: string;
   price: number;
 }
+
+interface item {
+  name: string;
+  count: number;
+}
+
 [];
 interface ProductCardProps {
   data: product;
+  cartItem: item | undefined;
+  setCartItems: React.Dispatch<React.SetStateAction<item[]>>;
 }
-export default function ProductCard({ data }: ProductCardProps) {
+export default function ProductCard({
+  data,
+  cartItem,
+  setCartItems,
+}: ProductCardProps) {
   return (
     <div className="h-full w-full justify-between overflow-hidden rounded-lg">
-      <div className="h-42 flex w-full items-center justify-center overflow-hidden rounded-lg">
+      <div className="h-42 relative flex w-full items-center justify-center rounded-lg">
         <Image
           src={"/" + data.image.desktop}
           alt={data.name}
           width={502}
           height={502}
         />
+        <AddtoCartButton cartItem={cartItem} setCartItems={setCartItems} />
       </div>
 
       <div className="flex flex-col items-start justify-evenly py-6 font-RedHat">
