@@ -26,7 +26,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-row items-center justify-around bg-Rose-50 p-24">
+    <main className="flex h-screen flex-row items-center justify-between gap-2 overflow-y-scroll bg-Rose-50 p-20">
       <ProductSection>
         {data.map((product) => {
           return (
@@ -38,10 +38,13 @@ export default function Home() {
             />
           );
         })}
-
-        <div className="h-full bg-blue-500">h</div>
       </ProductSection>
-      <CartSection cartItems={cartItems} />
+
+      <CartSection
+        cartItems={cartItems}
+        products={data}
+        setCartItems={setCartItems}
+      />
     </main>
   );
 }
