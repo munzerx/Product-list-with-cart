@@ -26,7 +26,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex h-screen flex-row items-center justify-between gap-2 overflow-y-scroll bg-Rose-50 p-20">
+    <main className="flex h-screen flex-row items-center justify-between gap-10 overflow-y-scroll bg-Rose-50 p-20">
       <ProductSection>
         {data.map((product) => {
           return (

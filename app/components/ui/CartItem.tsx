@@ -14,8 +14,8 @@ export default function CartItem({ productPrice, item, handleRemove }: any) {
   }, [item.count]);
 
   return (
-    <div className="mt-4 flex w-full flex-row justify-between border-b py-5">
-      <div className="flex flex-col">
+    <div className="mt-4 flex w-full flex-row justify-between border-b py-3">
+      <div className="flex flex-col gap-2">
         <p className="text-sm font-bold">{item.name}</p>
         <div className="flex flex-row items-center justify-start gap-2">
           <p className="text-sm font-bold text-Red">{item.count}x</p>
