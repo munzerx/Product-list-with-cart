@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import removeIcon from "@/public/assets/images/icon-remove-item.svg";
+import CurrencyTag from "./CurrencyTag";
 export default function CartItem({ productPrice, item, handleRemove }: any) {
   const [total, setTotal] = useState<number>(0);
 
@@ -19,19 +20,18 @@ export default function CartItem({ productPrice, item, handleRemove }: any) {
         <p className="text-sm font-bold">{item.name}</p>
         <div className="flex flex-row items-center justify-start gap-2">
           <p className="text-sm font-bold text-Red">{item.count}x</p>
-          <p className="text-Rose-500">
-            @{" "}
-            {productPrice.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })}
-          </p>
-          <p className="text-Rose-500 font-semibold">
-            {total.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })}
-          </p>
+
+          <CurrencyTag
+            preText="@ "
+            customStyle="text-Rose-500"
+            price={productPrice}
+          />
+
+          <CurrencyTag
+            preText=""
+            customStyle="text-Rose-500 font-semibold"
+            price={total}
+          />
         </div>
       </div>
       <button
