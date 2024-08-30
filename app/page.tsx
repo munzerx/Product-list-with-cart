@@ -21,6 +21,7 @@ export default function Home() {
   };
 
   const [cartItems, setCartItems] = useState<item[]>([]);
+  const [viewModal, setViewModal] = useState(false);
 
   useEffect(() => {
     setCartItems(createCart);
@@ -46,10 +47,11 @@ export default function Home() {
           cartItems={cartItems}
           products={data}
           setCartItems={setCartItems}
+          setViewModal={setViewModal}
         />
       </div>
 
-      <ConfirmModal viewModal={true} >
+      <ConfirmModal viewModal={viewModal} setViewModal={setViewModal}>
         <div>adfasfas</div>
       </ConfirmModal>
     </main>

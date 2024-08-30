@@ -4,6 +4,7 @@ import Image from "next/image";
 import EmptyCart from "@/public/assets/images/illustration-empty-cart.svg";
 import CartItem from "./ui/CartItem";
 import Tree from "@/public/assets/images/icon-carbon-neutral.svg";
+import CurrencyTag from "./ui/CurrencyTag";
 
 interface productImages {
   thumbnail: string;
@@ -27,12 +28,14 @@ interface CartSectionProps {
   cartItems: item[];
   products: product[];
   setCartItems: React.Dispatch<React.SetStateAction<item[]>>;
+  setViewModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function CartSection({
   cartItems,
   products,
   setCartItems,
+  setViewModal,
 }: CartSectionProps) {
   const [totalItems, setTotalItems] = useState<number>(0);
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -94,12 +97,12 @@ export default function CartSection({
             <CartItemsSection />
             <div className="flex flex-row items-center justify-between py-4">
               <p className="text-sm">Order Total</p>
-              <p className="text-2xl font-bold text-Rose-900">
-                {totalPrice.toLocaleString("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                })}
-              </p>
+
+              <CurrencyTag
+                customStyle="text-2xl font-bold text-Rose-900"
+                preText=""
+                price={totalPrice}
+              />
             </div>
             <div className="flex h-16 flex-row items-center justify-evenly rounded-lg bg-Rose-50 text-sm">
               <Image src={Tree} alt="carbon-neutral" />
@@ -108,7 +111,10 @@ export default function CartSection({
                 delivery
               </div>
             </div>
-            <button className="rounded-3xl bg-Red py-3 text-sm font-semibold text-white hover:bg-[#952c0c]">
+            <button
+              className="rounded-3xl bg-Red py-3 text-sm font-semibold text-white hover:bg-[#952c0c]"
+              onClick={() => setViewModal(true)}
+            >
               Confirm Order
             </button>
           </div>
@@ -116,7 +122,7 @@ export default function CartSection({
         {!totalItems && (
           <div className="flex flex-col items-center justify-center p-10">
             <Image src={EmptyCart} alt="empty cart" />
-            <p className="font-semibold text-sm text-Rose-900">
+            <p className="text-sm font-semibold text-Rose-900">
               Your added items will appear here
             </p>
           </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import AddtoCartButton from "./ui/AddtoCartButton";
+import CurrencyTag from "./ui/CurrencyTag";
 
 interface productImages {
   thumbnail: string;
@@ -47,12 +48,12 @@ export default function ProductCard({
       <div className="flex flex-col items-start justify-evenly py-6 font-RedHat">
         <label className="text-xs text-Rose-500">{data.category}</label>
         <p className="text-sm font-semibold text-Rose-900">{data.name}</p>
-        <label className="text-sm font-semibold text-Red">
-          {data.price.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD",
-          })}
-        </label>
+
+        <CurrencyTag
+          preText=""
+          customStyle="text-sm font-semibold text-Red"
+          price={data.price}
+        />
       </div>
     </div>
   );
